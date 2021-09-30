@@ -1,0 +1,1 @@
+curl -H "Content-Type: application/json" -X POST -d '{ "notificationChannel":"dev_cvc_itvdev227_1629377593833-0339a45e-d4b9-4733-8bfe-f67dae304551", "notificationType": "test10.25.25.28", "program_id": "5e81ed74398a891c6baac19a", "innings": "first", "ballId":"123" }' http://10.25.25.28:4000

@@ -1,0 +1,12 @@
+sudo npm install pm2@latest -g
+pm2 status
+
+pm2 start redis.js
+pm2 start redis-pusher.js
+
+pm2 list
+pm2 logs redis
+pm2 logs redis-pusher
+
+
+sudo ps -ef | grep node

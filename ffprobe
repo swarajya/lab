@@ -1,0 +1,3 @@
+View Audio Details
+-------------------
+ffprobe -i ZBU3GSNEhSKP-1612714158783-FLlg3TNC0AeT.mp4 -show_streams -select_streams a:0

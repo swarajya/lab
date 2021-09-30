@@ -1,0 +1,19 @@
+Configure X-Frame-Options in Apache
+----------------------------------
+sudo a2enmod headers
+sudo vim /etc/apache2/conf-enabled/security.conf
+Open tis line .... Header set X-Frame-Options: "SAMEORIGIN"
+Restart Apache
+
+HSTS feature on the Apache server
+---------------------------------
+Go to 
+vi /etc/apache2/sites-enabled/000-default.conf
+
+Add this line under 443 configuration below ssl keys
+
+Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
+
+Restart Apache
+
+

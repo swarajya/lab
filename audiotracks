@@ -1,0 +1,28 @@
+Remove specific audio track from video with ffmpeg
+ffmpeg -i input -map 0 -map -0:a:2 -c copy output
+-map 0 selects all streams from the input.
+-map -0:a:2 then deselects audio stream 3. The stream index starts counting from 0, so audio stream 10 would be 0:a:9.
+
+
+Remove all audio streams / tracks
+ffmpeg -i input -map 0 -map -0:a -c copy output
+-map 0 selects all streams from the input.
+-map -0:a then deselects all audio streams from the input.
+
+
+
+Add multiple audio tracks to video
+-----------------------------------
+ffmpeg -i output2.mp4 -i eng.mp3 -i dutch.mp3 -i fra.mp3 -map 0:v -map 1:a -map 2:a -map 3:a -metadata:s:a:0 language=eng -metadata:s:a:0 title="Eng"  -metadata:s:a:1 language=dut -metadata:s:a:1 title="Dutch" -metadata:s:a:2 language=fra -metadata:s:a:2 title="French" -c copy multi.mp4
+
+Audio rendition with acc
+------------------------
+ffmpeg -i THC_CNGC_155744_French_23976_1Mbps.mp4 -threads 0 -muxdelay 0 -y -map 0:3 -codec copy -f segment -segment_time 10 -segment_list_size 0 -segment_list audio/audio.m3u8 -segment_format mpegts audio/audio_%d.aac
+
+Audio Karaoke
+-------------
+ffmpeg -i Vote_Eleni.mp4 -vn -af pan="stereo|c0=c0|c1=-1*c1" -ac 1 karaoke2.mp3
+
+Extract Audio from Video
+------------------------
+ffmpeg -i video.mp4 -vn -f wav audio.wav

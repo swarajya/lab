@@ -1,0 +1,55 @@
+Install AWS Cli
+-----------------
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+$ which aws
+/usr/local/bin/aws
+$ aws --version
+aws-cli/2.1.39 Python/3.8.8 Linux/4.15.0-88-generic exe/x86_64.ubuntu.16 prompt/off
+
+EKS Setup
+-----------
+$ aws configure
+AWS Access Key ID [****************3LIB]: 
+AWS Secret Access Key [****************FVaE]: 
+Default region name [ap-south-1]: 
+Default output format [None]: json
+
+Add to kubeconfig (~/.kube/config)
+---------------------------------
+aws eks --region ap-south-1 update-kubeconfig --name clustername
+
+$ kubectl config get-contexts
+$ kubectl config use-context cind-vcprds-aks
+  Switched to context "cind-vcprds-aks".
+$kubectl get pods -n prodgec
+$ watch -n 1 kubectl get pods -n drtranscode
+
+
+ECR Login
+---------
+aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 013***.dkr.ecr.ap-south-1.amazonaws.com/**-vcloud-ecr
+
+Commands
+--------
+aws ecr list-images --repository-name mum-vcloud-ecr
+
+sudo docker tag transcoding:v5.7 01383**.dkr.ecr.ap-south-1.amazonaws.com/**-vcloud-ecr:transcodingv5.7
+sudo docker push 0138**.dkr.ecr.ap-south-1.amazonaws.com/***-vcloud-ecr/transcoding:v5.7
+
+
+Namespace Create
+----------------
+kubectl create -f namespace.yml
+
+namespace.yml
+----------------
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: irlptranscode
+
+
+

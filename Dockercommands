@@ -1,0 +1,22 @@
+Docker Build And Check Logs
+----------------------------
+sudo docker build -t preprocessor:m1 .
+sudo docker run -t -d preprocessor:m1
+sudo docker run -it waveform:v0 /bin/bash
+sudo docker ps | grep pre
+sudo docker logs 1fd2c15c25c9 --follow
+
+Nvidia Run command
+-----------
+sudo nvidia-docker run -t -d -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,video -v /mnt/Transcoding/Dev:/mnt/Transcoding/Dev transcoding:dev3.0
+
+Tag Pusher
+------------
+sudo az acr login --name acrname
+sudo docker build -t transcoding:v5.4 .
+sudo docker tag transcoding:v5.4 acrname.azurecr.io/transcoding:v5.4
+sudo docker push acrname.azurecr.io/transcoding:v5.4
+
+Docker cleanup images
+--------------------------------------
+docker rmi $(docker images | grep 'imagename')

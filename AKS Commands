@@ -1,0 +1,3 @@
+Get POD details with yaml
+--------------------------
+kubectl get pods stranscodescaler -o yaml -n stranscode
