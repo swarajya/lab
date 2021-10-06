@@ -1,0 +1,1 @@
+ffmpeg -i itv.mp4 -r 25/1 frames/$filename%03d.png
