@@ -1,3 +1,7 @@
+Docker Usage Details
+----------------------
+sudo docker stats
+
 Docker Build And Check Logs
 ----------------------------
 sudo docker build -t preprocessor:m1 .
