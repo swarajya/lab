@@ -1,0 +1,20 @@
+Connect
+--------
+redis-cli
+
+List Channels
+-----------
+127.0.0.1:6379> PUBSUB CHANNELS
+
+Memory
+-------
+127.0.0.1:6379> INFO MEMORY
+# Memory
+used_memory:50040440
+used_memory_human:47.72M
+used_memory_rss:48807936
+used_memory_peak:50040440
+used_memory_peak_human:47.72M
+used_memory_lua:36864
+mem_fragmentation_ratio:0.98
+mem_allocator:jemalloc-3.6.0
