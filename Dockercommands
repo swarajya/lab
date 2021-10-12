@@ -24,3 +24,7 @@ sudo docker push acrname.azurecr.io/transcoding:v5.4
 Docker cleanup images
 --------------------------------------
 docker rmi $(docker images | grep 'imagename')
+
+Docker exec
+------------
+sudo docker exec -it docker_redis-server_1 bash
