@@ -18,3 +18,6 @@ used_memory_peak_human:47.72M
 used_memory_lua:36864
 mem_fragmentation_ratio:0.98
 mem_allocator:jemalloc-3.6.0
+
+
+sudo service redis-server restart
