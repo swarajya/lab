@@ -1,1 +1,6 @@
 ffmpeg -i itv.mp4 -r 25/1 frames/$filename%03d.png
+
+Remove B-frame
+--------------
+ffmpeg -i <%INPUT_SOURCE%> -map 0 -map_metadata -1 -map_chapters -1 -acodec aac -b:a 80k -ac 2 -dn -sn -vcodec libx264 -vprofile high -level 4.2 -vf "scale=-2:234" -x264opts keyint=50:min-keyint=50:no-scenecut:bitrate=145:vbv-maxrate=145:vbv-bufsize=290:nal-hrd=cbr:bframes=0 -force_key_frames 0 -pix_fmt yuv420p <%OUTPUT%> -y
+
