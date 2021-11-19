@@ -20,6 +20,7 @@ Default output format [None]: json
 Add to kubeconfig (~/.kube/config)
 ---------------------------------
 aws eks --region ap-south-1 update-kubeconfig --name clustername
+ex: aws eks update-kubeconfig --name or-prai-eks --region us-west-2
 
 $ kubectl config get-contexts
 $ kubectl config use-context cind-vcprds-aks
