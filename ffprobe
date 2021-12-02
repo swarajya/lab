@@ -1,3 +1,6 @@
+ffprobe -loglevel quiet -print_format json -show_format -show_streams -show_error -count_frames -i FHD\ ABR\ Fatale\ Trailer.mp4 
+
+
 View Audio Details
 -------------------
 ffprobe -i ZBU3GSNEhSKP-1612714158783-FLlg3TNC0AeT.mp4 -show_streams -select_streams a:0
