@@ -36,7 +36,7 @@ aws ecr get-login-password --region ap-south-1 | sudo docker login --username AW
 Commands
 --------
 aws ecr list-images --repository-name mum-vcloud-ecr
-
+sudo docker build -t transcoding:v5.7 
 sudo docker tag transcoding:v5.7 01383**.dkr.ecr.ap-south-1.amazonaws.com/**-vcloud-ecr:transcodingv5.7
 sudo docker push 0138**.dkr.ecr.ap-south-1.amazonaws.com/***-vcloud-ecr/transcoding:v5.7
 
