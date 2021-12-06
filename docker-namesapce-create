@@ -1,0 +1,7 @@
+kubectl create -f namespace.yml
+
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: proxyengine
