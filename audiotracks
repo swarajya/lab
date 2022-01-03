@@ -1,3 +1,8 @@
+Extract Specific track with duration
+-----------------------------------
+ffmpeg -i FINAL.mp4 -ss 900 -t 180 -map 0:a:6 a31.wav
+
+
 Remove specific audio track from video with ffmpeg
 ffmpeg -i input -map 0 -map -0:a:2 -c copy output
 -map 0 selects all streams from the input.
