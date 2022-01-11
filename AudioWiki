@@ -1,0 +1,15 @@
+Multitrack recording software now has the capability of creating an unlimited number of tracks, and for each track, you can have numerous channels.
+
+The current standards are:
+
+     Mono(1 channel)
+     Stereo(2 channels)
+     2.1(3 channels)
+     5.1(6 channels)
+     7.1(8 channels)
+
+ Note the '.1' refers to a LFE(Low Frequency Effects) Channel. So 5.1 would be 
+ 5 x Full frequency channels and 1 x Low frequency channel.
+ 
+ ----------------------------------------------------------------
+ 
