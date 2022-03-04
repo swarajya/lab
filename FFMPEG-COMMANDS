@@ -1,3 +1,9 @@
+Cut a portion from Video
+------------------------
+ffmpeg -i OriginalsBin2DAXH264--202112230936040371961--585--VD--5014.mov -ss 00:00:03 -t 00:00:12 -async 1 cut12.mp4
+
+Extract Frames
+---------------
 ffmpeg -i itv.mp4 -r 25/1 frames/$filename%03d.png
 
 Remove B-frame
