@@ -1,0 +1,15 @@
+Connect Query
+------------
+mongo "mongodb://username:pass@10.25.24.70:27017/admin?replicaSet=rs0"
+
+db.getCollection('JobsQueue').find({jobType:'ASSET_CONVERSION', jobId:'6220c8486923aa00012904ce'}).pretty()
+
+
+
+Update Query
+------------
+db.getCollection('JobsQueue').update(
+   {"jobId": "622765de6923aa00012c6a66"},    
+   { "$set": { "status" : "PENDING" } }, 
+   { "multi": false } 
+)
