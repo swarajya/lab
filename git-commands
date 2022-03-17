@@ -1,0 +1,7 @@
+check current used branch
+---------------------------
+git branch
+
+change branch
+------------
+sudo git checkout -b dev
