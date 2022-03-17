@@ -4,4 +4,8 @@ git branch
 
 change branch
 ------------
-sudo git checkout -b dev
+sudo git checkout -b development
+
+Set tracking
+----------
+sudo git branch --set-upstream-to=origin/development development
