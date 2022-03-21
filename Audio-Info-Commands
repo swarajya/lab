@@ -1,0 +1,16 @@
+mediainfo --OUTPUT=XML OriginalsBin2DAXH264--202112230936040371961--585--VD--5014.mov  -f
+ffmpeg -i a6.wav -filter:a volumedetect -f null /dev/null
+n_samples: 57600000
+[Parsed_volumedetect_0 @ 0x562df94342c0] mean_volume: -31.2 dB
+[Parsed_volumedetect_0 @ 0x562df94342c0] max_volume: -2.6 dB
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_2db: 1
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_3db: 20
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_4db: 47
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_5db: 167
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_6db: 512
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_7db: 1347
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_8db: 3024
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_9db: 6676
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_10db: 11425
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_11db: 18122
+[Parsed_volumedetect_0 @ 0x562df94342c0] histogram_12db: 26760
