@@ -9,3 +9,5 @@ First Paint (FP)	            -> First visual change after navigation change (typ
 First Contentful Paint (FCP)  -> 	First content painted to the screen
 First Meaningful Paint (FMP)	-> When the main layout change occurred (most elements rendered)
 Speed Index	                  -> A score of how quickly content is rendered to the screen (start to finish)
+Largest Contentful Paint (LCP) -> is a Core Web Vitals metric and measures when the largest content element in the viewport becomes visible. 
+It can be used to determine when the main content of the page has finished rendering on the screen.
