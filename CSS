@@ -1,3 +1,11 @@
 To display critical content on the page, use rel="preconnect" to inform the browser that your page intends to establish a connection as soon as possible.
 <link rel="preconnect" href="https://example.com" />
 <link rel="dns-prefetch" href="https://example.com" />
+
+
+
+Window Load Event             -> Webpage has been completely loaded and rendered
+First Paint (FP)	            -> First visual change after navigation change (typically blank screen)
+First Contentful Paint (FCP)  -> 	First content painted to the screen
+First Meaningful Paint (FMP)	-> When the main layout change occurred (most elements rendered)
+Speed Index	                  -> A score of how quickly content is rendered to the screen (start to finish)
