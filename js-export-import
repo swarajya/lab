@@ -1,0 +1,10 @@
+function myFunction(arg) {
+  console.debug(arg);
+}
+function otherFunction(arg) {
+  console.error(arg);
+}
+
+module.exports = {myFunction, otherFunction };
+
+import {myFunction, otherFunction} from "./Functions.js";
