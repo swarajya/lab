@@ -1,0 +1,9 @@
+lscpu: list CPU and processor info
+lspci: PCI busses, including graphics card, network adapter.
+df -h: disk free.
+free -h: total, free, used RAM.
+
+              total        used        free      shared  buff/cache   available
+Mem:           15Gi       325Mi        14Gi       2.0Mi       1.0Gi        14Gi
+Swap:            0B          0B          0B
+
