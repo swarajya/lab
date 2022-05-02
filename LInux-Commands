@@ -1,5 +1,18 @@
 lscpu: list CPU and processor info
 lspci: PCI busses, including graphics card, network adapter.
+
+lspci
+00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma]
+00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+00:01.3 Non-VGA unclassified device: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+00:03.0 VGA compatible controller: Amazon.com, Inc. Device 1111
+00:04.0 Non-Volatile memory controller: Amazon.com, Inc. Device 8061
+00:05.0 Ethernet controller: Amazon.com, Inc. Elastic Network Adapter (ENA)
+00:1e.0 3D controller: NVIDIA Corporation TU104GL [Tesla T4] (rev a1)
+00:1f.0 Non-Volatile memory controller: Amazon.com, Inc. NVMe SSD Controller
+
+
+
 df -h: disk free.
 free -h: total, free, used RAM.
 
