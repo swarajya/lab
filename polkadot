@@ -1,0 +1,21 @@
+Run Step - 1
+----------
+sudo docker run -p 9944:9944 parity/polkadot:v0.8.24 --name "Local" --rpc-external --ws-external --alice --dev
+
+--name This can be anything, but “Local” will do for now
+--ws-external Allow for WebSocket connections
+--dev Run the node on “dev mode.” This means that it’s not going to sync with any particular network, but launch a new Polakdot network on your local machine.
+--alice Create a small number of wallets with a lot of money! (Alice and Bob are standard names in cryptographic literature).
+
+Step 2
+--------
+git clone https://github.com/polkadot-js/apps polkadot-js
+cd polkadot-js
+yarn
+yarn run start
+
+
+
+
+
+
