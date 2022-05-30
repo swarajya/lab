@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract rockPaperScissors is ERC1155 {
+contract multiMintSample is ERC1155 {
     uint256 public constant Token_ID_1 = 1;
     uint256 public constant Token_ID_2 = 2;
     uint256 public constant Token_ID_3 = 3;
