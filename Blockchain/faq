@@ -1,0 +1,10 @@
+WHERE IS THE BLOCKCHAIN AND EVM DATA STORED?
+-------------------------------------------
+
+The directory which Geth uses to store raw blockchain data depends on your operating system. 
+Upon running Geth, look for a message that looks like this:
+
+INFO [11-18|14:04:47] Allocated cache and file handles         
+database=/Users/bgu/Library/Ethereum/testnet/geth/lightchaindata cache=768 handles=128
+
+The path following “database=” should tell you where the blockchain data is stored on your machine
