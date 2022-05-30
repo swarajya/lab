@@ -1,0 +1,9 @@
+Everything in Ethereum is just a smart contract, and there are no rules about what smart contracts have to do, the community has developed a variety of standards (called EIPs or ERCs) for documenting how a contract can interoperate with other contracts.
+
+ERC20: the most widespread token standard for fungible assets, albeit somewhat limited by its simplicity.
+
+ERC721: the de-facto solution for non-fungible tokens, often used for collectibles and games.
+
+ERC777: a richer standard for fungible tokens, enabling new use cases and building on past learnings. Backwards compatible with ERC20.
+
+ERC1155: a novel standard for multi-tokens, allowing for a single contract to represent multiple fungible and non-fungible tokens, along with batched operations for increased gas efficiency.
