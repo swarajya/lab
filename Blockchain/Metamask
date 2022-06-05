@@ -12,8 +12,6 @@ BSC (BNB Chain)
 Fantom
 Avalanche (C-Chain). 
 
-
-
 Don't use MetaMask with any addresses that don't use the Ethereum format, either when sending or receiving. This is in addition to the fact you should never send tokens straight from one network to another without bridging.
 
 EVM-compatible networks with different formats. Just because a network is EVM-compatible does not necessarily mean it uses an 0x address in all circumstances. The Harmony network, for example, is fully EVM-compatible, but allows users to switch between an 0x and one1 version of their address (although the number which follows this prefix is the same). Others, like Avalanche, have multiple chains with varying levels of EVM support (you should only interact with Avalanche C-Chain on MetaMask). 
