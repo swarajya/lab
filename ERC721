@@ -89,3 +89,30 @@ contract KauriBadge is ERC721Token, Ownable {
         return totalSupply().add(1); 
     }
 }
+
+
+
+Starting with the constructor:
+
+constructor() ERC721Token("KauriBadge", "KAB") public { }
+
+Since the ERC721Token takes two strings, name and symbol, those arguments are included in the instantiation here (“KauriBadge”, “KAB”)
+
+Next is mintTo: In this case, mintTo is limited to use by the creator of the contract (OpenZeppelin Ownable contract) using the onlyOwner modifer.
+
+function mintTo(address _to, string _tokenURI) public onlyOwner {}
+
+In order to keep the token IDs simple and sequential, an internal function _getNextTokenId() counts the current token supply 
+(using the totalSupply getter) and adds 1. 
+This is then used in the internal _mint function as the tokenId. Next, 
+the metadata URI (if provided) is set using the _setTokenURI function and the newly created tokenId.
+
+function _getNextTokenId() private view returns (uint256) {
+        return totalSupply().add(1); 
+    }
+
+
+
+
+
+
