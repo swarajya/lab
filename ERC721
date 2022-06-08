@@ -1,2 +1,57 @@
-Non-fungible Tokens (NFTs/NFTYs/Nifties) are an emerging tool to create provably unique digital assets. Whereas ERC20 ushered in a flood of fungible (where no single token or fraction of a token is unique or distinguishable from any other) tokens, ERC721 and others are allowing for rare and unique units. These units can represent everything from a specific piece of digital artwork (or physical art!) to a real estate asset, financial instrument (a futures contract to buy 1,000 barrels of oil for $60k on December 1), or even a KYC compliance check.
+Non-fungible Tokens (NFTs/NFTYs/Nifties) are an emerging tool to create provably unique digital assets. 
+Whereas ERC20 ushered in a flood of fungible (where no single token or fraction of a token is unique or distinguishable from any other) tokens, 
+ERC721 and others are allowing for rare and unique units. These units can represent everything from a specific piece of digital artwork (or physical art!)
+to a real estate asset, financial instrument (a futures contract to buy 1,000 barrels of oil for $60k on December 1), or even a KYC compliance check.
+
+interface ERC721 /* is ERC165 */ {
+
+    event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
+
+    event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);
+
+    event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);
+
+    function balanceOf(address _owner) external view returns (uint256);
+
+    function ownerOf(uint256 _tokenId) external view returns (address);
+
+    function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable;
+
+    function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable;
+
+    function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
+
+    function approve(address _approved, uint256 _tokenId) external payable;
+
+    function setApprovalForAll(address _operator, bool _approved) external;
+
+    function getApproved(uint256 _tokenId) external view returns (address);
+
+    function isApprovedForAll(address _owner, address _operator) external view returns (bool);
+}
+
+interface ERC165 {
+
+    function supportsInterface(bytes4 interfaceID) external view returns (bool);
+}
+
+The interface itself is composed of 8 functions:
+
+balanceOf: returns the number of tokens owned by the given address
+
+ownerOf: returns the address that owns a particular token (by unique ID)
+
+transferFrom: transfers the token from one address to another
+
+safeTransferFrom: performs the same action as transferFrom, but will fail if the receiver (_to) has not implemented the ERC721 functionality. 
+This is done to prevent the accidental burning of the token, as a contract without ERC721 would have no support for moving the token elsewhere.
+
+approve: sets an address as the “approved” owner, but does not transfer the token to them (they can do so in the future by using transferFrom). 
+note: the specified token (by tokenId) must be owned by the sender (msg.sender)
+
+setApprovalForAll: similar to approve, but sets the address as the “approved” owner for all tokens owned by the sender (msg.sender)
+
+getApproved: returns the approved owner of a _tokenId
+
+isApprovedForAll: returns true or false if the _operator is listed as the approved owner for all of _owner's tokens (setApprovalForAll called previously)
 
