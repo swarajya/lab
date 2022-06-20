@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  </head>
+  <body>
+
+    <a-scene>
+        <a-assets>
+            <img id="boxTexture" src="thumb.jpg">
+            <img id="skyTexture" src="8.jpg">
+            <img id="homeThumbnail" src="home.jpg">
+              
+            <video id="vid2" preload="auto"  src="./mov_bbb.mp4" width="160" height="90"   controls="true"
+             crossOrigin="anonymous" muted></video>
+              <video id="videoBunny" preload="auto"  src="https://cdn.aframe.io/videos/bunny.mp4" width="160" height="90"   controls="true"
+             crossOrigin="anonymous" muted></video>
+              <video id="vid" loop crossorigin="anonymous" playsinline webkit-playsinline src="https://bitmovin-a.akamaihd.net/content/playhouse-vr/progressive.mp4"></video>
+          </a-assets>
+        
+          <!-- <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2"></a-box> -->
+        
+      <a-sphere id = "ball" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-plane src="#skyTexture" position="0 0 -10" rotation="-90 -120 90" width="20" height="20" color="#7BC8A4"></a-plane>
+      
+      <!-- <a-sky color="#ECECEC"></a-sky> -->
+      <a-sky src="#skyTexture"></a-sky>
+      
+      <!-- <a-plane material="src:#videoBunny" width="20" height="12" position="2 4 -12" play-on-click></a-plane> -->
+      
+      <a-plane id="tv" width="20" height="12" position="2 4 -12"></a-plane>
+      <a-entity link="href: index.html; title: My Homepage; image: #homeThumbnail"></a-entity>
+    
+      <!-- <a-entity material="shader: flat; src: #videoBunny"
+      geometry="primitive: plane; width: 160; height: 90;"
+      position="0 60 -250"
+      rotation="0 35 0"
+      play-on-click
+      visible="false">
+</a-entity> -->
+
+<a-camera position="0 1.0 0"><a-cursor></a-cursor></a-camera>
+    
+    
+    </a-scene>
+
+
+    
+    
+    <script>
+      let sceneEl = document.querySelector('a-scene');
+      let dBalls = [] // Array of the balls we are about to create
+      let orbitalRadius = 2.2
+      let cycle = 0 // Track angular revolution of balls
+      for(let i = 0; i < 7; i++) {
+        let db = document.createElement('a-box');
+        let ang = i * 2 * 3.14159 / (7) // Calculate angular position of the ball
+        // Use entity.setAttribute to change a certain value
+
+        
+        db.setAttribute('id', 'nft_'+i)
+        db.setAttribute('video_link', './mov_bbb.mp4')
+        db.setAttribute('change-color-on-hover', 'color: blue')
+        db.setAttribute('play-nft-clip')
+
+        db.setAttribute('geometry', {
+          radius: 0.1,
+          //rotation: "0 -130 0"
+        })
+        // Some nice trig to get the ball in the right position
+        db.setAttribute('position', {
+          x: orbitalRadius * Math.cos(ang), 
+          y: 0.5, 
+          z: orbitalRadius * Math.sin(ang) - 4
+        })
+        
+        db.setAttribute('material', {
+          color: 'orange',
+          src: '#vid'
+          //src: '#boxTexture',                              
+        })
+
+        sceneEl.appendChild(db) // Add the ball to the scene
+        dBalls.push(db) // Add the ball to our array of balls for later access
+      }
+
+
+      let ball = sceneEl.querySelector('#ball') // Grab the red ball that we created in HTML
+
+      let rad = 0.1 // Radius of the ball
+      let sign = 1 // Stores whether the ball is currently growing or shrinking
+      let timer = setInterval(() => {
+        rad += (0.005 * sign) // Either increase or decrease the radius of the ball
+
+        ball.setAttribute('geometry', {
+          radius: rad
+        })
+        
+        // If radius is above/below threshold then flip sign
+        if(rad >= 1.2 || rad <= 0.1) {
+          sign *= -1
+        }
+        
+        // Rotate the dragon balls
+        dBalls.forEach((d, ind) => {
+          let ang = cycle + (ind * 2 * 3.14159 / (7))
+          d.setAttribute('position', {
+            x: orbitalRadius * Math.cos(ang), 
+            y: 0.5, 
+            z: orbitalRadius * Math.sin(ang) - 4
+          })
+        });
+        cycle += 0.01
+      }, 50)
+
+
+      
+
+
+
+
+
+  AFRAME.registerComponent('play-on-click', {
+  init: function () {
+    this.onClick = this.onClick.bind(this);
+    //alert('clicked');
+  },
+  play: function () {
+    window.addEventListener('click', this.onClick);
+  },
+  pause: function () {
+    window.removeEventListener('click', this.onClick);
+  },
+  onClick: function (evt) {
+    var videoEl = this.el.getAttribute('material').src;
+    if (!videoEl) { return; }
+    this.el.object3D.visible = true;
+    videoEl.play();
+  }
+});
+
+
+
+
+  AFRAME.registerComponent('change-color-on-hover', {
+    schema: {
+      color: {default: 'red'}
+    },
+
+    init: function () {
+      var data = this.data;
+      var el = this.el;  // <a-box>
+      var defaultColor = el.getAttribute('material').color;
+
+      el.addEventListener('mouseenter', function () {
+        console.log(data.color)
+        el.setAttribute('color', data.color);
+
+
+        // var videoEl = el.getAttribute('material').src;        
+        // if (!videoEl) { return; }
+        //   el.object3D.visible = true;
+        //   videoEl.play();
+        });
+
+      el.addEventListener('mouseleave', function () {
+        el.setAttribute('color', defaultColor);
+      });
+
+      }
+
+    
+  });
+
+
+
+
+
+  AFRAME.registerComponent('play-nft-clip', {
+    
+    init: function () {
+      var data = this.data;
+      var el = this.el;  // <a-box>
+
+      el.addEventListener('click', function () {
+        let tvEl = document.querySelector('#tv');
+        tvEl.setAttribute('material', 'src:#vid');
+   
+        //var videoEl = el.getAttribute('material').src;
+        var videoEl = tvEl.getAttribute('material').src;
+     
+        if (!videoEl) { return; }
+          el.object3D.visible = true;
+          videoEl.play();
+        });
+    }
+  });
+
+ 
+
+
+    </script>
+  </body>
+</html>
