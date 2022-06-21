@@ -1,0 +1,3 @@
+redis-cli
+CONFIG GET databases
+sudo service redis status
