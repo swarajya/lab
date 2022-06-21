@@ -1,3 +1,8 @@
 redis-cli
 CONFIG GET databases
 sudo service redis status
+redis-cli ping
+redis-cli info
+redis-cli info stats
+redis-cli info server
+sudo apt-get install php7.4-redis
