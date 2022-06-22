@@ -1,0 +1,14 @@
+1. Install php redis extension
+    sudo apt-get install php7.3-redis
+    
+2. Update php.ini /etc/php/7.3/apache2/php.ini
+    session.save_handler = redis
+    session.save_path = "tcp://127.0.0.1:6379?auth=yourpassword"
+    
+3. restart apache2
+    sudo service apache2 restart
+4. Check php sessions in redis
+    127.0.0.1:6379> keys *
+      1) "PHPREDIS_SESSION:humg8htbrubg9hpml3ssn011lu"
+
+
