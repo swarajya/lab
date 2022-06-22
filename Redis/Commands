@@ -6,3 +6,32 @@ redis-cli info
 redis-cli info stats
 redis-cli info server
 sudo apt-get install php7.4-redis
+
+
+
+>> redis-cli info memory
+# Memory
+used_memory:1057232 ------This entry shows the total memory size allocated to the Redis cluster. Simply put, 
+                          it represents the maximum size the Redis cluster can store. The value is expressed in Bytes
+used_memory_human:1.01M ----  This entry shows the used_memory value expressed in a human-readable format.
+used_memory_rss:3858432
+used_memory_rss_human:3.68M
+used_memory_peak:1102736   ------- shows the total number of bytes consumed by Redis.
+used_memory_peak_human:1.05M ----- shows the total number of readable format consumed by Redis.
+used_memory_peak_perc:95.87%
+used_memory_overhead:890208
+used_memory_startup:823464
+used_memory_dataset:167024
+used_memory_dataset_perc:71.45%
+total_system_memory:4028022784
+total_system_memory_human:3.75G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:3.65
+mem_allocator:jemalloc-3.6.0
+active_defrag_running:0
+lazyfree_pending_objects:0
+
