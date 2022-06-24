@@ -10,6 +10,10 @@ sudo docker run -it waveform:v0 /bin/bash
 sudo docker ps | grep pre
 sudo docker logs 1fd2c15c25c9 --follow
 
+Remove all exited containers
+----------------------------
+sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+
 Nvidia Run command
 -----------
 sudo nvidia-docker run -t -d -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,video -v /mnt/Transcoding/Dev:/mnt/Transcoding/Dev transcoding:dev3.0
