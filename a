@@ -10,6 +10,6 @@ COPY . /var/www/html/
 
 WORKDIR /var/www/html/
 
-EXPOSE 9092
+EXPOSE 4002
 
 CMD [ "php", "./test.php" ]
