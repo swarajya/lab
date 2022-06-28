@@ -1,0 +1,72 @@
+FROM ubuntu:20.04
+FROM php:7.4-apache
+ARG DEBIAN_FRONTEND=noninteractive
+
+#RUN apt update -y && \
+#apt upgrade -y && \
+#apt -y install software-properties-common
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    mariadb-client \
+    libpng-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
+    unzip \
+    git \
+    curl \
+    dos2unix \
+    supervisor
+
+#RUN apt-get update && apt install -y \    
+#    php7.4-mbstring \
+#   php7.4-pdo \
+#    php7.4-pdo_mysql \
+#    php7.4-intl \
+#    php7.4-json \
+#    php7.4-common \
+#    php7.4-mysql \
+#    php7.4-zip \
+#    php7.4-gd \
+#    php7.4-mbstring \
+#    php7.4-curl \
+#    php7.4-xml \
+#    php7.4-bcmath
+
+RUN apt install -y \
+	php \ 
+	php-cli \ 
+	php-fpm \
+	php-json \
+	php-common \ 
+	php-mysql \
+	php-zip \
+	php-gd \
+	php-mbstring \ 
+	php-curl \
+	php-xml \
+	php-pear \
+	php-bcmath
+
+
+
+
+#RUN docker-php-ext-install php-mbstring php-pdo php-pdo_mysql \ 
+#   && a2enmod rewrite negotiation \
+#  && docker-php-ext-install opcache
+
+RUN a2enmod rewrite
+RUN a2enmod ssl
+RUN a2enmod proxy
+
+
+#RUN docker-php-ext-install intl
+COPY --chown=www-data:www-data . /var/www/html/ 
+COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf 
+
+WORKDIR /var/www/html
+#ENTRYPOINT service apache2 start
+CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
