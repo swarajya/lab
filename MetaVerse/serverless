@@ -1,0 +1,5 @@
+Serverless framework installed with the following command: npm install serverless -g
+First, create a boilerplate serverless project to provide a template:
+  serverless create --template aws-nodejs --name metaapi
+ Then, install serverless offline on project directory
+  npm install serverless-offline --save-dev
