@@ -1,2 +1,5 @@
+CREATE INDEX ON table_name (field)
+
+
 SELECT * FROM _ql_committed_People AS r WHERE r.data.firstName IN ('Swaraj');
 SELECT * FROM history(People) AS h WHERE h.metadata.id = 'JZeigoUfaxcBgWmorttnzh';
