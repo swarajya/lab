@@ -76,16 +76,37 @@ Return
 
 
 
+PUT - /updatenft/{id}
+
+  . Request 
+    {
+      nftId : '',
+      nftName : 'new name'      
+    }
+    
+    Response 
+    {
+      responseCode,
+      message
+    }
 
 
+GET  - /nfts
+       . Get all list of NFTs
+       . Accessed by Admin Group Only
+       . Pagination to be added..
+       
+GET  - /usernfts/{userid}
+       . Get all list of NFTs for a user     
+            
+GET  - /nfts/{nftId}
+       . Get details of a particular nft
+ 
+GET  - /nftcount/{nftId}
+       . Get nft avaliability count, can be called for verification befor any transaction.
+       
 
 
-
-
-PUT - https://apiurl.amazonaws.com/updatenft/{id}
-GET  - https://apiurl.amazonaws.com/nfts
-GET  - https://apiurl.amazonaws.com/nfts/{id}
-GET  - https://apiurl.amazonaws.com/nftcount/{id}
 
 
 
