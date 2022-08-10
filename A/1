@@ -9,6 +9,104 @@ walletBalance
 
 
 
+NFT TABLE STRUCTURE
+--------------------
+{
+  nftId,
+  nftName,
+  nftOwnerId,
+  nftPublishStatus,
+  nftMintQuantity,
+  nftAvaliableQuantity,
+  nftCloudStorageType,
+  nftBucketName,
+  nftBucketRegion,
+  nftOutputBucket,
+  nftStoragePath,
+  nftUnitPrice,
+  nftCurrency,
+  nftApiBaseURL,
+  nftAuthTokens,
+  nftCdnURL,
+  nftEncryptionKey,
+  nftIvKey,
+  nftAddTime,
+  nftModifiedTime
+}
+
+
+
+NFT APIs
+----------
+Create NFT
+------------
+SQS POST - SQS/lambdareader/
+
+This Lambda function validates these below fields before creating a new nft record.
+All fields are mandatory
+{
+  nftId,
+  nftName,
+  nftOwnerId,
+  nftPublishStatus,
+  nftMintQuantity,
+  nftAvaliableQuantity,
+  nftCloudStorageType,
+  nftBucketName,
+  nftBucketRegion,
+  nftOutputBucket,
+  nftStoragePath,
+  nftUnitPrice,
+  nftCurrency,
+  nftApiBaseURL,
+  nftAuthTokens,
+  nftCdnURL,
+  nftEncryptionKey,
+  nftIvKey
+}
+
+. Check for duplicate entry
+. Check quantity, price are not null, zero values.
+. check currency is valid currency
+
+Return 
+  {
+    Update SQS Queqe with latest nftId, status
+  }
+
+
+
+
+
+
+
+
+
+PUT - https://apiurl.amazonaws.com/updatenft/{id}
+GET  - https://apiurl.amazonaws.com/nfts
+GET  - https://apiurl.amazonaws.com/nfts/{id}
+GET  - https://apiurl.amazonaws.com/nftcount/{id}
+
+
+
+
+
+
+
+
+
+
+POST - https://apiurl.amazonaws.com/Prod/createaccount/
+POST - https://apiurl.amazonaws.com/Prod/checkfunds/
+POST - https://apiurl.amazonaws.com/Prod/addfunds/
+POST - https://apiurl.amazonaws.com/Prod/withdrawfunds/
+
+
+
+
+
+
+
 
 
 
