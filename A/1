@@ -1,13 +1,7 @@
-walletId
-walletUserId
-walletTxnType
-walletTxnAmount
-walletBalance
-walletTxnTime
-walletBalance
 
+QLDB
 
-
+Ledger Name : metaversecloud
 
 NFT TABLE STRUCTURE
 --------------------
@@ -36,13 +30,12 @@ NFT TABLE STRUCTURE
 
 
 
-NFT APIs
-----------
+
 Create NFT
 ------------
 SQS POST - SQS/lambdareader/
 
-This Lambda function validates these below fields before creating a new nft record.
+This Lambda function validates below fields before creating a new nft record.
 All fields are mandatory
 {
   nftId,
@@ -81,7 +74,8 @@ PUT - /updatenft/{id}
   . Request 
     {
       nftId : '',
-      nftName : 'new name'      
+      nftName : 'new name',
+      nftPublishStatus: 1      
     }
     
     Response 
@@ -114,7 +108,13 @@ GET  - /nftcount/{nftId}
 
 
 
-
+walletId
+walletUserId
+walletTxnType
+walletTxnAmount
+walletBalance
+walletTxnTime
+walletBalance
 
 
 POST - https://apiurl.amazonaws.com/Prod/createaccount/
