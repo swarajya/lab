@@ -180,18 +180,19 @@ GET  - /nftcount/{nftId}
 
 
 
+
 {
-  "nftId":"1",
+  "nftId":"2",
   "nftName":"Test Hundred",
-  "nftOwnerId":0,
+  "nftOwnerId":1,
   "nftPublishStatus":"Y",
-  "nftMintQuantity":1,  
+  "nftMintQuantity":0,  
   "cloudStorageType":"aws",
-  "bucketName":"bucketName",
-  "bucketRegion":"bucketName",
-  "outputBucket":"bucketName",
-  "assetStoragePath":"bucketName",
-  "cdnURL":"http://cksss",
+  "bucketName":"mum-prd-vcincomingdata",
+  "bucketRegion":"ap-south-1",
+  "outputBucket":"mum-prd-vcoutgoingdata",
+  "assetStoragePath":"videos/uploads/0AwbadCvnNij-1629899755524-tIs4VY6jX78x.mp4",
+  "cdnURL":"https://d1zghpnvr1l6q.cloudfront.net",
   "nftUnitPrice":"10.45",
   "nftCurrency":"$",
   "nftApiBaseURL":"http:kkkk",
