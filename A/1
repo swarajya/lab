@@ -5,28 +5,27 @@ Ledger Name : metaversecloud
 
 NFT TABLE STRUCTURE
 --------------------
-{​
-  nftId,​
-  nftName,​
-  nftOwnerId,​
-  nftPublishStatus,​
-  nftMintQuantity,​  
-  cloudStorageType,​
-  bucketName,​
-  bucketRegion,​
-  outputBucket,​
-  assetStoragePath,​
-  cdnURL,​​  
-  nftUnitPrice,​
-  nftCurrency,​
-  nftApiBaseURL,​
-  nftAuthTokens,​
-  nftEncryptionKey,​
-  nftIvKey,​
-  nftAddTime,​
-  nftModifiedTime​
-}​
-
+{
+  nftId,
+  nftName,
+  nftOwnerId,
+  nftPublishStatus,
+  nftMintQuantity,  
+  cloudStorageType,
+  bucketName,
+  bucketRegion,
+  outputBucket,
+  assetStoragePath,
+  cdnURL,
+  nftUnitPrice,
+  nftCurrency,
+  nftApiBaseURL,
+  nftAuthTokens,
+  nftEncryptionKey,
+  nftIvKey,
+  nftAddTime,
+  nftModifiedTime
+}
 
 
 
@@ -41,20 +40,21 @@ All fields are mandatory
   nftName,
   nftOwnerId,
   nftPublishStatus,
-  nftMintQuantity,
-  nftAvaliableQuantity,
-  nftCloudStorageType,
-  nftBucketName,
-  nftBucketRegion,
-  nftOutputBucket,
-  nftStoragePath,
+  nftMintQuantity,  
+  cloudStorageType,
+  bucketName,
+  bucketRegion,
+  outputBucket,
+  assetStoragePath,
+  cdnURL,
   nftUnitPrice,
   nftCurrency,
   nftApiBaseURL,
   nftAuthTokens,
-  nftCdnURL,
   nftEncryptionKey,
-  nftIvKey
+  nftIvKey,
+  nftAddTime,
+  nftModifiedTime
 }
 
 . Check for duplicate entry
