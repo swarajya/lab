@@ -103,6 +103,79 @@ GET  - /nftcount/{nftId}
 
 
 
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "nftId": {
+      "type": "string"
+    },
+    "nftName": {
+      "type": "string"
+    },
+    "nftOwnerId": {
+      "type": "integer"
+    },
+    "nftPublishStatus": {
+      "type": "string",
+      "enum": ["Y", "N"]
+    },
+    "nftMintQuantity": {
+      "type": "integer"
+    },
+    "cloudStorageType": {
+      "type": "string"
+    },
+    "bucketName": {
+      "type": "string"
+    },
+    "bucketRegion": {
+      "type": "string"
+    },
+    "outputBucket": {
+      "type": "string"
+    },
+    "assetStoragePath": {
+      "type": "string"
+    },
+    "cdnURL": {
+      "type": "string"
+    },
+    "nftUnitPrice": {
+      "type": "number"
+    },
+    "nftCurrency": {
+      "type": "string"
+    },
+    "nftApiBaseURL": {
+      "type": "string"
+    },
+    "nftEncryptionKey": {
+      "type": "string"
+    },
+    "nftIvKey": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "nftId",
+    "nftName",
+    "nftOwnerId",
+    "nftPublishStatus",
+    "nftMintQuantity",
+    "cloudStorageType",
+    "bucketName",
+    "bucketRegion",
+    "outputBucket",
+    "assetStoragePath",
+    "cdnURL",
+    "nftUnitPrice",
+    "nftCurrency",
+    "nftApiBaseURL",
+    "nftEncryptionKey",
+    "nftIvKey"
+  ]
+}
 
 
 
