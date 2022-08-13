@@ -180,6 +180,32 @@ GET  - /nftcount/{nftId}
 
 
 
+{
+  "nftId":"1",
+  "nftName":"Test Hundred",
+  "nftOwnerId":0,
+  "nftPublishStatus":"Y",
+  "nftMintQuantity":1,  
+  "cloudStorageType":"aws",
+  "bucketName":"bucketName",
+  "bucketRegion":"bucketName",
+  "outputBucket":"bucketName",
+  "assetStoragePath":"bucketName",
+  "cdnURL":"http://cksss",
+  "nftUnitPrice":"10.45",
+  "nftCurrency":"$",
+  "nftApiBaseURL":"http:kkkk",
+  "nftAuthTokens":"333333",
+  "nftEncryptionKey":"4444444",
+  "nftIvKey":"55555555",
+  "nftAddTime":"33",
+  "nftModifiedTime":"44"
+}
+
+
+
+
+
 walletId
 walletUserId
 walletTxnType
