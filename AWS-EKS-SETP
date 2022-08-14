@@ -57,3 +57,9 @@ Delete All with namespaces
 -------------------------
 kubectl get ns
 kubectl delete all  --all -n 2048-game
+
+OR
+
+kubectl delete ingress ingress-nginx
+kubectl delete deployment ingress-nginx
+kubectl delete service ingress-nginx
