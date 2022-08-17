@@ -226,7 +226,65 @@ POST - https://apiurl.amazonaws.com/Prod/withdrawfunds/
 
 
 
+My Update
+------------
 
+1. Updated my SQS reader (read and create nft) Lambda function and added automated Schema validator for all required fields for null check and formats.
+2. Updated nft GET Apis and deployed all changes to amplify through Github.
+
+
+-----------------------------
+
+1. Wallet Structure Finalization. This is currect structure.
+
+walletId
+walletUserId
+walletUserGroup
+walletTxnType - debit / credit
+walletCurrency
+walletTxnAmount
+walletBalance
+walletTxnTime
+
+2. Create transction History in DynamoDb and Save All Wallet transctions to DynamoDB. 
+3. Wallet APIs Development.
+       POST - /createaccount (called during user creation)
+       POST - /checkfunds
+       POST - /addfunds
+       POST -/withdrawfunds (Need more info on it)
+       POST - /verifytransction (Need more thought on it)
+       POST - /gettransctionhistory (export from DynamoDB)
+       
+4. Explore how to verify the transction with QLDB history.
+                        
+
+Next Week 
+---------------
+
+Integration help.
+
+
+NFT Transfer APIs and Wallet Actions
+-----------------------------------
+
+POST - /transferNft
+
+1. Transfer NFT from Owner to User, Deduct nftCount from nft data and add new entry in qldb with new user as ownerId.
+2. Transfer required amount from User wallet to Nft Owner Account.
+3. Make transaction entry in Dynamodb.
+4. Return nft transfer status.
+5. Do check user group, avaliable amount, currency conversion before nft transfer.
+       
+Week 3 
+-------
+Add API to verify the Block ID / Document ID in QLDB History.
+
+
+
+
+
+
+ 
 
 
 
