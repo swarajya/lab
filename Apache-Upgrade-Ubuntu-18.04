@@ -1,3 +1,5 @@
+apache2 -v
+
 sudo add-apt-repository ppa:ondrej/apache2
 sudo apt update
 sudo apt install apache2
