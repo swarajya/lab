@@ -1,3 +1,4 @@
+lsb_release -a
 apache2 -v
 
 sudo add-apt-repository ppa:ondrej/apache2
