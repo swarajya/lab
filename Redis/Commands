@@ -7,6 +7,8 @@ redis-cli info stats
 redis-cli info server
 sudo apt-get install php7.4-redis
 
+redis-cli keys number_* | xargs -L 1 redis-cli get
+
 
 
 >> redis-cli info memory
