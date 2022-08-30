@@ -1,3 +1,33 @@
+1. Wallet Structure Finalization. This is currect structure.
+
+walletId
+walletUserId
+walletUserGroup
+walletTxnType - debit / credit / transfer
+walletTxnFrom
+walletTxnTo
+walletCurrency
+walletTxnAmount
+walletBalance
+walletTxnRef
+walletTxnTime
+
+2. Create transction History in DynamoDb and Save All Wallet transctions to DynamoDB. 
+3. Wallet APIs Development.
+       POST - /createaccount (called during user creation)
+       POST - /checkfunds
+       POST - /addfunds
+       POST -/withdrawfunds (Need more info on it)
+       POST - /verifytransction (Need more thought on it)
+       POST - /gettransctionhistory (export from DynamoDB)
+       
+4. Explore how to verify the transction with QLDB history.
+
+
+
+
+
+
 Magic Wallet 
 
 global rockstar..
@@ -241,29 +271,7 @@ My Update
 
 -----------------------------
 
-1. Wallet Structure Finalization. This is currect structure.
 
-walletId
-walletUserId
-walletUserGroup
-walletTxnType - debit / credit / transfer
-walletTxnFrom
-walletTxnTo
-walletCurrency
-walletTxnAmount
-walletBalance
-walletTxnTime
-
-2. Create transction History in DynamoDb and Save All Wallet transctions to DynamoDB. 
-3. Wallet APIs Development.
-       POST - /createaccount (called during user creation)
-       POST - /checkfunds
-       POST - /addfunds
-       POST -/withdrawfunds (Need more info on it)
-       POST - /verifytransction (Need more thought on it)
-       POST - /gettransctionhistory (export from DynamoDB)
-       
-4. Explore how to verify the transction with QLDB history.
                         
 
 Next Week 
