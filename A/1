@@ -246,7 +246,9 @@ My Update
 walletId
 walletUserId
 walletUserGroup
-walletTxnType - debit / credit
+walletTxnType - debit / credit / transfer
+walletTxnFrom
+walletTxnTo
 walletCurrency
 walletTxnAmount
 walletBalance
