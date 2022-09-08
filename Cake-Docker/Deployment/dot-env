@@ -1,0 +1,10 @@
+export DEBUG="false"
+export APP_DEFAULT_MYSQL_HOST="***"
+export APP_DEFAULT_MYSQL_USER="root"
+export APP_DEFAULT_MYSQL_PASS="***"
+export APP_DEFAULT_MYSQL_DB="***"
+export APP_DEFAULT_MYSQL_DSN="mysql://root:*@*/",
+
+export APP_BACKEND_APIURL="https://*.com/test/"
+export APP_BASE_URL="http://localhost:8080/"
+export APP_PLAYER_URL="http://localhost:8080/player/index.php"
