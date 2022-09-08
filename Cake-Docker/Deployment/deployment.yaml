@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dev-ui
+  name: dev-ui-deployment
+  namespace: devui
+spec:
+  selector:
+    matchLabels:
+      app: dev-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dev-ui
+        'cluster-autoscaler.kubernetes.io/safe-to-evict': 'false'
+    spec:
+      containers:
+        - name: dev-ui
+          image: *.dkr.ecr.ap-south-1.amazonaws.com/mum-vcloud-ecr:phpapachesample1.0
+          imagePullPolicy: Always
+          
+      nodeSelector:
+        sku: general
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: aws-ecr
+
