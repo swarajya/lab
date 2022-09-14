@@ -1,0 +1,39 @@
+let lambdaFunctionName = "malletLambda"
+    if (process.env.ENV && process.env.ENV !== "NONE" && process.env.ENV != "undefined") {
+      lambdaFunctionName = lambdaFunctionName + "-" + process.env.ENV;
+    }
+    
+    const invokeLambda = async (params) => {
+         const data = await lambda.invoke(params).promise();
+         return JSON.parse(data.Payload);
+       }
+       
+       var payloadbody = {
+        "body": {
+          "walletUserId":event.userName, 
+          "UserPoolId": event.userPoolId, 
+          "walletCurrency": "dollar",
+          "walletTxnType":"credit",
+          "walletTxnAmount":"0",
+          "walletBalance":"0" ,
+          "operationType":"CREATE" 
+        }
+      }
+
+    const params = {
+      FunctionName: lambdaFunctionName,
+      Payload: JSON.stringify(payloadbody)
+      //Payload: event.body
+  };
+  
+  console.log('Wallet Params ');
+  console.log(params);
+
+  try {
+        //await lambda.invoke(params).promise();
+        console.log('Wallet execution starts');
+        const result = await invokeLambda(params);
+        console.log(result);    
+    } catch (e) {
+      console.log('invokeLambda :: Error: ' + e);
+    }
