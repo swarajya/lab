@@ -3,3 +3,9 @@ CREATE INDEX ON table_name (field)
 
 SELECT * FROM _ql_committed_People AS r WHERE r.data.firstName IN ('Swaraj');
 SELECT * FROM history(People) AS h WHERE h.metadata.id = 'JZeigoUfaxcBgWmorttnzh';
+
+
+History Query
+-----------
+SELECT * FROM _ql_committed_nfts r where r.data.nftId = 'NFT1665675053'; 
+SELECT * FROM history(nfts) AS h WHERE h.metadata.id ='Djg3EitxEAG41IpSSIbhki'  ;
