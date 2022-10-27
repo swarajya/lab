@@ -1,0 +1,10 @@
+OpenSSL: Convert CRT to PEM:
+Type the following code into your OpenSSL client:
+
+openssl x509 -in cert.crt -out cert.pem
+
+OpenSSL: Convert CER to PEM
+openssl x509 -in cert.cer -out cert.pem
+
+OpenSSL: Convert DER to PEM
+openssl x509 -in cert.der -out cert.pem
