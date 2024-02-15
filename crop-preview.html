@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video.js Live Preview Plugin</title>
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet">
+    <style>
+        #videoContainer {
+            position: relative;
+            width: 640px;
+            height: 360px;
+        }
+
+        #myVideo {
+            width: 640px;
+            height: 360px;
+        }
+
+        .canvas-container {
+            position: absolute;
+            left: 100%;
+            top: 10px;
+            margin-left: 50px;
+        }
+
+        .canvas {
+            position: absolute;
+            width: 202px;
+            height: 360px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+        #overlayDiv {
+            position: absolute;
+            width: 202px;
+            height: 360px;
+            top: 0; /* Adjusted to remove top padding */
+            left: 100px;
+            background-color: rgba(0, 0, 255, 0.3);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="videoContainer">
+        <!-- Video.js player -->
+        <video id="myVideo" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+            <source src="https://otttranscodeddata.azureedge.net/incdev/9f049936-4008-42db-94b6-90b832741069/master.m3u8" type="application/x-mpegURL">
+        </video>
+
+        <!-- Canvas containers to show live previews -->
+        <div class="canvas-container">
+            <canvas class="canvas" id="canvas1" width="202" height="360"></canvas>
+        </div>
+
+        <!-- Overlay div -->
+        <div id="overlayDiv"></div>
+    </div>
+
+    <!-- Include Video.js library -->
+    <script src="https://vjs.zencdn.net/7.11.4/video.js"></script>
+
+    <!-- Include the live preview plugin script -->
+    <script>
+        (function (window, videojs) {
+            'use strict';
+
+            var plugin = function (options) {
+                var player = this;
+                var livePreviewCanvasList = {};
+                var overlayDiv = document.getElementById('overlayDiv');
+
+                var livePreviewPercentages = options.livePreviewPercentages || {};
+
+                player.on('timeupdate', function () {
+                    requestAnimationFrame(updateLivePreviews);
+                });
+
+                function updateLivePreviews() {
+                    Object.keys(livePreviewPercentages).forEach(function (canvasId) {
+                        var canvas = document.getElementById(canvasId);
+                        if (canvas) {
+                            updateLivePreview(canvas, livePreviewPercentages[canvasId]);
+                        }
+                    });
+                }
+
+                function updateLivePreview(canvas, percentages) {
+                    if (!livePreviewCanvasList[canvas.id]) {
+                        livePreviewCanvasList[canvas.id] = true;
+                    }
+
+                    var video = player.el().getElementsByTagName('video')[0];
+
+                    var ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Calculate the cropping dimensions based on the overlay div's position and dimensions
+                    var cropLeft = (overlayDiv.offsetLeft - video.offsetLeft) / video.offsetWidth;
+                    var cropTop = (overlayDiv.offsetTop - video.offsetTop) / video.offsetHeight;
+                    var cropWidth = overlayDiv.offsetWidth / video.offsetWidth;
+                    var cropHeight = overlayDiv.offsetHeight / video.offsetHeight;
+
+                    ctx.drawImage(video, cropLeft * video.videoWidth, cropTop * video.videoHeight, cropWidth * video.videoWidth, cropHeight * video.videoHeight, 0, 0, canvas.width, canvas.height);
+                }
+            };
+
+            videojs.registerPlugin('livePreviewPlugin', plugin);
+        })(window, window.videojs);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var player = videojs('myVideo');
+            player.livePreviewPlugin({
+                livePreviewPercentages: {
+                    canvas1: { left: 0, top: 0, right: 1, bottom: 1 }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
